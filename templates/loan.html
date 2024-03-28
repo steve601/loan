@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>my webapp</title>
+        <meta name="description" content="">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            h1{
+                text-align: center;
+            }
+            h2{
+                text-align:center;
+            }
+            body{
+                background-image: url("{{url_for('static',filename = 'loaan.JPG')}}");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .container{
+                width: 35%;
+                margin: 0 auto;
+            }
+            form{
+            background-color: rgba(240,240,240,0.3);
+            border-radius: 10px
+            width: 400px;
+            height: 480px;
+            }
+            .content{
+                padding-left: 150px;
+            }
+            .inp{
+                padding-bottom: 15px;
+            }
+            .inp label{
+                font-family: Apple Chancery, cursive;
+            }
+            .inp input{
+                height:18px;
+                width: 48%;
+            }
+            .inp select{
+                height: 25px;
+                width: 50%;
+            }
+            .btn{
+                padding-left:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>LOAN DEFAULT'S RISK DETECTION</h1>
+        <div class="container"> 
+            <form action="/detect" method = 'POST'>
+                <h2>Detect...</h2>
+                <div class="content">
+                    <div class="inp">
+                        <label for="Work_Experience">Work Experience(years)</label><br>
+                        <input type="number" name = 'Work_Experience' value="Work_Experience" min = 0>
+                    </div>
+                    <div class="inp">
+                        <label for="House_Ownership">House Ownership</label><br>
+                        <select name="House_Ownership" id="House_Ownership">
+                            <option value="Rented">Rented</option>
+                            <option value="Owned">Owned</option>
+                            <option value="None">None</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="Vehicle_Ownership(car)">Vehicle Ownership(car)</label><br>
+                        <select name="Vehicle_Ownership(car)" id="Vehicle_Ownership(car)">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="Residence_State">Residence State</label><br>
+                        <select name="Residence_State" id="Residence_State">
+                            <option value="Punjab">Punjab</option>
+                            <option value="Madhya_Pradesh">Madhya_Pradesh</option>
+                            <option value="Andhra_Pradesh">Andhra_Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="West_Bengal">West_Bengal</option>
+                            <option value="Uttar_Pradesh">Uttar_Pradesh</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Tamil_Nadu">Tamil_Nadu</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Telangana">Telangana</option>
+                        </select>
+                    </div>
+                    <div class="inp">
+                        <label for="Years_in_Current_Residence">Years in Current Residence</label><br>
+                        <input type="number" name='Years_in_Current_Residence' value = 'Years_in_Current_Residence'>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type='submit'>Detect</button>
+                </div>
+                <h2>{{pred}}</h2>
+            </form>
+        </div>
+    </body>
+</html>
